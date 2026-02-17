@@ -16,7 +16,7 @@ FROM
 LEFT JOIN 
     (SELECT person_id, value_as_number AS weight, measurement_date
      FROM omop.MEASUREMENT,omop.CONCEPT
-     WHERE concept_name like '%Body weight%' and measurement.measurement_concept_id = concept_id
+     WHERE concept_name like '%Body weight%' and measurement_concept_id = concept_id
     ) AS lw 
 ON fw.person_id+0 = lw.person_id+0 and lw.weight <>0
 WHERE (lw.weight - fw.weight) != 0
