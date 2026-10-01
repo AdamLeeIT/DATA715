@@ -74,9 +74,10 @@ WHERE n < @N;
 
 INSERT INTO orders_myisam SELECT * FROM orders_innodb;
 INSERT INTO orders_memory SELECT * FROM orders_innodb;
+/*
 Part 3: Observe persistence and volatility
 Task A: Confirm row counts
-
+*/
 SELECT 'innodb' engine, COUNT(*) cnt FROM orders_innodb
 UNION ALL
 SELECT 'myisam', COUNT(*) FROM orders_myisam
